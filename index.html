@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissors</title>
+</head>
+<body>
+    <script>
+        let compScore = 0;
+        let playerScore = 0;
+        game()
+        
+        
+        
+
+    function computerPlay() {
+        let hands = ["rock","paper","scissors"];
+        let randHand = hands[Math.floor(Math.random() * hands.length)].toUpperCase();
+        return randHand
+        
+
+        }
+
+    function playRound(playerSelection,computerSelection) {
+        if (playerSelection == computerSelection) {
+            console.log("It's a draw!")
+        } else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
+            compScore += 1;
+            console.log('You lose! Paper beats rock!');
+        } else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
+            playerScore += 1;
+            console.log('You win! Rock beats scissors!');
+        } else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
+            compScore += 1;
+            console.log('You lose! Rock beats scissors!');
+        } else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
+            playerScore += 1;
+            console.log('You win! Scissors beats paper!');
+        } else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
+            playerScore += 1;
+            console.log('You win! Paper beats rock!');
+        } else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
+            compScore += 1;
+            console.log('You lose! Scissors beats paper!');
+        }
+    }
+
+    function game() {
+        for (let i=0; i < 5; i++) {
+            let playerSelection = prompt("Enter your move").toUpperCase()
+            let computerSelection = computerPlay()
+
+            playRound(playerSelection,computerSelection)
+
+            
+
+            
+        }
+        showWinner()
+        
+    }
+
+    function showWinner() {
+        if (playerScore > compScore) {
+            console.log(`You won the game! Score was ${playerScore}-${compScore}!`)
+        } else if (compScore > playerScore) {
+            console.log(`You lost the game! Score was ${playerScore}-${compScore}!`)
+        } else {
+            console.log(`Tie! Score was ${playerScore}-${compScore}!`)
+        }
+
+        }
+    
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
